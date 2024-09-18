@@ -1,0 +1,25 @@
+def process_sentence(sentence):
+    # Dividir la cadena en palabras
+    words = sentence.split()
+    
+    # Inicializar variables
+    unique_words = []
+    duplicate_words = set()
+    seen_words = set()
+    
+    # Iterar sobre las palabras
+    for word in words:
+        if word in seen_words:
+            if word not in duplicate_words:
+                duplicate_words.add(word)
+        else:
+            unique_words.append(word)
+            seen_words.add(word)
+    
+    # Devolver la tupla con la lista de palabras únicas y el conjunto de palabras duplicadas
+    return (unique_words, duplicate_words)
+
+# Ejemplo de uso
+sentence = "the cat in the hat is in the house"
+result = process_sentence(sentence)
+print(result)
